@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "node": "nodemon app.js",
+    "test": "nodemon app.js",
     "start": "node app.js",
-    "build": "gcloud app deploy --quiet"
+    "build": "gcloud app deploy --quiet",
+    "git": "git pull && git push -u origin main"
   },
   "author": "",
   "license": "ISC",
