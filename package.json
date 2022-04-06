@@ -6,8 +6,6 @@
   "scripts": {
     "test": "nodemon app.js",
     "start": "node app.js",
-    "build": "gcloud app deploy --quiet",
-    "git": "git pull && git push -u origin main"
   },
   "author": "",
   "license": "ISC",
