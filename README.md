@@ -9,7 +9,7 @@ This project aims to provide a solution to all of those problems:
 - Alerts you on leaving without saving
 - An organized list of all your sheets
 
-You can find it at (http://www.dndsheets.tk)[http://www.dndsheets.tk]
+You can find it at http://www.dndsheets.tk
 
 ##### Notice:
 As Heroku is used for deployment, the website might be asleep, and take a bit longer to load than usual.
