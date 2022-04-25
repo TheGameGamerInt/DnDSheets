@@ -6,7 +6,7 @@ This project aims to provide a solution to all of those problems:
 - Locally stored in the browser
 - Includes export function to transfer between devices
 - In-browser automated form
-- Is overridden if you start typing in the field
+  - Activated and deactivated on demand with simple checkbox
 - Alerts you on leaving without saving
 - An organized list of all your sheets
 
