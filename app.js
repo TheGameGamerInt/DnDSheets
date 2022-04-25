@@ -15,18 +15,20 @@ app.get('/', (req, res) => {
 app.get('/new', (req, resp) => {
   //resp.render('create')
   resp.render('sheet')
- })
+})
 
- app.post('/upload*', (req, resp) => {
-   resp.redirect('/')
- })
+app.post('/upload*', (req, resp) => {
+  resp.redirect('/')
+})
 
- app.get('/test', (req, resp) => {
+app.get('/test', (req, resp) => {
   resp.render('test')
- })
+})
 
 app.get('/*', (req, resp) => {
-  resp.render('sheet', {data: url.parse(req.url,true).search})
+  resp.render('sheet', {
+    data: url.parse(req.url, true).search
+  })
 })
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;

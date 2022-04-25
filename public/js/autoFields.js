@@ -1,10 +1,18 @@
-let fields = Array.from(document.getElementsByTagName('input')).filter((item) => {return item.hasAttribute('automated')});
-let parents = Array.from(document.getElementsByTagName('input')).filter((item) => {return item.hasAttribute('child')})
+let fields = Array.from(document.getElementsByTagName('*')).filter((item) => {
+    return item.hasAttribute('automated')
+});
+let parents = Array.from(document.getElementsByTagName('input')).filter((item) => {
+    return item.hasAttribute('child')
+})
 let i = 0
 console.log(1, fields)
 console.log(2, parents)
 
-let upD = new CustomEvent('parentUpdate', {detail: {parent: () => parents[i]}})
+let upD = new CustomEvent('parentUpdate', {
+    detail: {
+        parent: () => parents[i]
+    }
+})
 
 fields.forEach(element => {
     console.log(element)
@@ -12,23 +20,23 @@ fields.forEach(element => {
 
 parents.forEach(element => {
     console.log(element)
-    element.addEventListener('input', ()=> {
+    element.addEventListener('input', () => {
         fields.forEach(elem => {
-            if(elem.name == element.getAttribute('child')) {
+            if (elem.getAttribute('name') == element.getAttribute('child')) {
                 Auto(elem, element)
             }
         })
-        console.log('a')})
+    })
 })
 
 function Auto(elem, parent) {
-    if(!document.getElementById('autoButton').checked) return;
-    switch(parent.getAttribute('CType')) {
+    if (!document.getElementById('autoButton').checked) return;
+    switch (parent.getAttribute('CType')) {
         case 'score':
-            elem.value = Math.floor((parent.value-10)/2)
+            elem.innerHTML = Math.floor((parent.value - 10) / 2)
             break;
         case 'PB':
-            elem.value = Math.floor(2 + (parent.value-1)/4)
+            elem.value = Math.floor(2 + (parent.value - 1) / 4)
             break;
         case 'AC':
 
