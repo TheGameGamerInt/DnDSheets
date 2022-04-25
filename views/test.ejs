@@ -1,14 +1,22 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Demo Page</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <p>Your IP is <%=data%><br><br>But do not worry, it has not been stored. It is only fetched when delivered to this statement.</p>
-        <script src="js/script.js" async defer></script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Demo Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <p>Toggle automatic calculations</p>
+    <input type="checkbox" id="autoButton" checked><br><br>
+    <form>
+        <input child="strMod" name="str" CType="score" type="number">
+        <p name="strMod" automated></p>
+    </form>
+    <script src="js/autoFields.js" async defer></script>
+</body>
+
 </html>
