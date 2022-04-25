@@ -21,6 +21,10 @@ app.get('/new', (req, resp) => {
    resp.redirect('/')
  })
 
+ app.get('/test', (req, resp) => {
+  resp.render('test')
+ })
+
 app.get('/*', (req, resp) => {
   resp.render('sheet', {data: url.parse(req.url,true).search})
 })
