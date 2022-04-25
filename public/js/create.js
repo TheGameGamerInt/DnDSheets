@@ -16,7 +16,6 @@ request.onupgradeneeded = event => {
 
     Names.forEach(name => {
         if (!db.objectStoreNames.contains(name)) {
-            ;
             db.createObjectStore(name, {
                 keyPath: "ID"
             })
