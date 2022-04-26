@@ -2,14 +2,16 @@ const express = require('express');
 const app = express();
 const requestIp = require('request-ip');
 const url = require('url')
+const ejs = require('ejs');
+const path = require('path');
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(requestIp.mw())
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('storage');
+  res.render('storage.ejs');
 });
 
 app.get('/new', (req, resp) => {

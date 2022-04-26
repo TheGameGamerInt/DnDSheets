@@ -1,11 +1,21 @@
 {
   "name": "dndsheets.tk",
   "version": "1.0.0",
+  "bin": "app.js",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "nodemon app.js",
     "start": "node app.js"
+  },
+  "pkg": {
+    "assets": [
+        "views/*",
+        "public/**/*"
+    ],
+    "targets": [
+      "latest-win-x64"
+    ]
   },
   "author": "",
   "license": "ISC",
