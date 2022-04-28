@@ -60,5 +60,5 @@ function Auto(elem, parent) {
         option.value = races[i].Name
         option.appendChild(text);
         console.log(document)
-        document.getElementById("ch-Races").appendChild(option);
+        document.getElementById("ch-race").appendChild(option);
     }
