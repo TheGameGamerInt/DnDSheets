@@ -8,8 +8,8 @@
 //}
 
 let classes = [{Name:"Barbarian"}, {Name:"Bard"}, {Name:"Cleric"}, {Name:"Druid"}, {Name:"Fighter"}, {Name:"Monk"}, {Name:"Paladin"}, {Name:"Ranger"}, {Name:"Rogue"}, {Name:"Sorcerer"}, {Name:"Warlock"}, {Name:"Wizard"}],
-    races = [{Name:"Dragonborn"}, {Name:"Dwarf"}, {Name:"Elf"}, {Name:"Gnome"}, {Name:"Half-Elf"}, {Name:"Half-Orc"}, {Name:"Halfling"}, {Name:"Human"}, {Name:"Tiefling"}]
-
+    races = [{Name:"Dragonborn"}, {Name:"Dwarf"}, {Name:"Elf"}, {Name:"Gnome"}, {Name:"Half-Elf"}, {Name:"Half-Orc"}, {Name:"Halfling"}, {Name:"Human"}, {Name:"Tiefling"}],
+    subrace = [{Name:"Hill Dwarf", BelongsTo:"Dwarf"}, {Name:"High Elf", BelongsTo:"Elf"}, {Name:"Rock Gnome", BelongsTo:"Gnome"}, {Name:"Lightfoot", BelongsTo:"Halfling"}]
 
 
 
@@ -44,7 +44,9 @@ request.onerror = event => {
 request.onsuccess = event => {
     db = event.target.result;
     console.log('Connected!')
-    onStartup()
+    if (typeof onStartup === "function") { 
+        onStartup()
+    }
 }
 
 request.onupgradeneeded = event => {

@@ -31,34 +31,28 @@ let CS = {
     } 
 },
 Class = {
-    ID,
     BelongsTo: parseInt(window.location.pathname.slice(1)),
     Name: '',
     HitDie: [1,4],
     Levels: 1
 },
 Subclass = {
-    ID,
     BelongsTo: function() {return Class.ID},
     Name: ""
 },
 Race = {
-    ID,
     BelongsTo: parseInt(window.location.pathname.slice(1)),
     Name: ""
 },
 Subrace = {
-    ID,
     BelongsTo: function() {return Race.ID},
     Name: ""
 },
 Background = {
-    ID,
     BelongsTo: parseInt(window.location.pathname.slice(1)),
     Name: "",
 },
 Scores = {
-    ID,
     BelongsTo: parseInt(window.location.pathname.slice(1)),
     STR: 10,
     DEX: 10,
@@ -68,7 +62,6 @@ Scores = {
     CHA: 10
 },
 Items = {
-    ID,
     BelongsTo: parseInt(window.location.pathname.slice(1)),
     Name: '',
     Type: '',
@@ -76,32 +69,26 @@ Items = {
     //WIP
 },
 FE = {
-    ID,
     FeatureID: function() {return Feature.ID},
     EffectID: function() {return Effect.ID}
 },
 IF = {
-    ID,
     ItemID: function() {return Item.ID},
     FeatureID: function() {return Feature.ID}
 },
 CF = {
-    ID,
     ClassID: function() {return Class.ID},
     FeatureID: function() {return Feature.ID}
 },
 SCF = {
-    ID,
     SubclassID: function() {return Subclass.ID},
     FeatureID: function() {return Feature.ID}
 },
 RF = {
-    ID,
     RaceID: function() {return Race.ID},
     FeatureID: function() {return Feature.ID}
 },
 SRF = {
-    ID,
     SubraceID: function() {return Subrace.ID},
     FeatureID: function() {return Feature.ID}
 }
