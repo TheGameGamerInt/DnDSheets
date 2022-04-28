@@ -93,10 +93,9 @@ function Auto(elem, parent) {
         document.getElementById("ch-subrace").style.display = ''
     }
 }
+console.log(scores)
 for (i in scores) {
-    let option = document.createElement("input")
-    let text = document.createTextNode(scores[i])
-    option.value = scores[i].Name
-    option.appendChild(text);
-    document.getElementById("ch-class").appendChild(input);
+    let input = document.createElement("input")
+    input.value = scores[i]
+    document.getElementById("AbScores").appendChild(input);
 }
