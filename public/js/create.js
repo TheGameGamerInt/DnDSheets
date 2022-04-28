@@ -3,7 +3,7 @@
 
 let CS = {
     ID: parseInt(window.location.pathname.slice(1)),
-    Name: 'New Character #'+ this.ID,
+    Name: 'New Character #'+ function() {return Class.ID},
     Exp: 0,
     PB: 2,
     Player: '',
