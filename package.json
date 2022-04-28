@@ -10,8 +10,8 @@
   },
   "pkg": {
     "assets": [
-        "views/*",
-        "public/**/*"
+      "public/**/*",
+        "views/*"
     ],
     "targets": [
       "latest-win-x64"
