@@ -62,3 +62,11 @@ function Auto(elem, parent) {
         console.log(document)
         document.getElementById("ch-race").appendChild(option);
     }
+    for (i in races) {
+        let option = document.createElement("option")
+        let text = document.createTextNode(races[i].Name)
+        option.value = races[i].Name
+        option.appendChild(text);
+        console.log(document)
+        document.getElementById("ch-race").appendChild(option);
+    }
