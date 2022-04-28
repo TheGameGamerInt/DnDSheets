@@ -45,3 +45,20 @@ function Auto(elem, parent) {
             AddFeat(elem, parent)
     }
 }
+    
+    for (i in classes) {
+        let option = document.createElement("option")
+        let text = document.createTextNode(classes[i].Name)
+        option.value = classes[i].Name
+        option.appendChild(text);
+        console.log(document)
+        document.getElementById("ch-class").appendChild(option);
+    }
+    for (i in races) {
+        let option = document.createElement("option")
+        let text = document.createTextNode(races[i].Name)
+        option.value = races[i].Name
+        option.appendChild(text);
+        console.log(document)
+        document.getElementById("ch-Races").appendChild(option);
+    }
