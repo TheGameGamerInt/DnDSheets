@@ -1,19 +1,8 @@
-if (!window.indexedDB) {
-    alert("Your browser doesn't support a stable version of IndexedDB. Please use another browser.");
-    window.location = '/'
-}
-let sheets,
-    db,
-    req,
-    request = indexedDB.open("Sheets", 5);
-request.onerror = event => {
-    window.alert('This app uses IndexedDB to store your sheets. Without permission, we can not store them, and as such, can not offer our service.');
-};
-request.onsuccess = event => {
-    db = event.target.result;
-    console.log('Connected!')
-    req = db.transaction(["Sheet"]).objectStore('Sheet').getAll()
+
+function onStartup() {
+    req = db.transaction(["Sheet",]).objectStore('Sheet').getAll()
     req.onsuccess = event => {
+        console.log(event.target)
         let link = document.getElementById('link'),
             i = 1
         for (let j = 0; j < event.target.result.length; j++) {
@@ -37,17 +26,3 @@ request.onsuccess = event => {
         })
     }
 };
-request.onupgradeneeded = event => {
-    let db = event.target.result;
-    let Names = ["Sheet", "Class", "Subclass", "Race", "Subrace", "Feature", "Effect", "Background", "Scores", "Items", "F-E", "I-F", "C-F", "SC-F", "R-F", "SR-F"]
-
-    Names.forEach(name => {
-        if (!db.objectStoreNames.contains(name)) {
-            ;
-            db.createObjectStore(name, {
-                keyPath: "ID"
-            })
-        }
-    })
-
-}

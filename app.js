@@ -20,7 +20,7 @@ app.get('/new', (req, resp) => {
 })
 
 app.get('/test', (req, resp) => {
-  resp.render('test')
+  resp.render('Charactersheet')
 })
 
 app.get('/*', (req, resp) => {

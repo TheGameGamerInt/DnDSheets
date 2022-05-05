@@ -5,8 +5,6 @@ let parents = Array.from(document.getElementsByTagName('input')).filter((item) =
     return item.hasAttribute('child')
 })
 let i = 0
-console.log(1, fields)
-console.log(2, parents)
 
 let upD = new CustomEvent('parentUpdate', {
     detail: {
@@ -15,11 +13,9 @@ let upD = new CustomEvent('parentUpdate', {
 })
 
 fields.forEach(element => {
-    console.log(element)
 });
 
 parents.forEach(element => {
-    console.log(element)
     element.addEventListener('input', () => {
         fields.forEach(elem => {
             if (elem.getAttribute('name') == element.getAttribute('child')) {
@@ -43,5 +39,57 @@ function Auto(elem, parent) {
             break;
         case 'Feat':
             AddFeat(elem, parent)
+    }
+}
+    
+    for (i in classes) {
+        let option = document.createElement("option")
+        let text = document.createTextNode(classes[i].Name)
+        option.value = classes[i].Name
+        option.appendChild(text);
+        document.getElementById("ch-class").appendChild(option);
+    }
+    for (i in races) {
+        let option = document.createElement("option")
+        let text = document.createTextNode(races[i].Name)
+        option.value = races[i].Name
+        option.appendChild(text);
+        document.getElementById("ch-race").appendChild(option);
+    }
+
+    let SubRaces = subrace.filter((SR) => {return document.getElementById("ch-race").value==SR.BelongsTo})
+    for (i in SubRaces) {
+        let option = document.createElement("option")
+        let text = document.createTextNode(SubRaces[i].Name)
+        option.value = SubRaces[i].Name
+        option.appendChild(text);
+        document.getElementById("ch-subrace").appendChild(option);
+    }
+    
+    if (!document.getElementById("ch-subrace").hasChildNodes()) {
+        document.getElementById("ch-subrace").style.display = 'none'
+        document.getElementById("ch-subraceL").style.display = 'none'
+    } else {
+        document.getElementById("ch-subraceL").style.display = ''
+        document.getElementById("ch-subrace").style.display = ''
+    }
+
+    document.getElementById("ch-race").onchange = function() {SubRaces = subrace.filter((SR) => {return document.getElementById("ch-race").value==SR.BelongsTo})
+    while (document.getElementById("ch-subrace").hasChildNodes()) {
+        document.getElementById("ch-subrace").removeChild(document.getElementById("ch-subrace").firstChild);
+      }
+    for (i in SubRaces) {
+        let option = document.createElement("option")
+        let text = document.createTextNode(SubRaces[i].Name)
+        option.value = SubRaces[i].Name
+        option.appendChild(text);
+        document.getElementById("ch-subrace").appendChild(option);
+    }
+    if (!document.getElementById("ch-subrace").hasChildNodes()) {
+        document.getElementById("ch-subrace").style.display = 'none'
+        document.getElementById("ch-subraceL").style.display = 'none'
+    } else {
+        document.getElementById("ch-subraceL").style.display = ''
+        document.getElementById("ch-subrace").style.display = ''
     }
 }
