@@ -19,10 +19,6 @@ app.get('/new', (req, resp) => {
   resp.render('sheet')
 })
 
-app.post('/upload*', (req, resp) => {
-  resp.redirect('/')
-})
-
 app.get('/test', (req, resp) => {
   resp.render('test')
 })
