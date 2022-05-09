@@ -120,7 +120,7 @@ let CS = {
         }
     }
 
-Class.ID
+
 //Insert into DB
 function AddNew() {
 
