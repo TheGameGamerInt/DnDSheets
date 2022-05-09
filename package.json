@@ -11,7 +11,7 @@
   "pkg": {
     "assets": [
       "public/**/*",
-        "views/*"
+      "views/*"
     ],
     "targets": [
       "latest-win-x64"
