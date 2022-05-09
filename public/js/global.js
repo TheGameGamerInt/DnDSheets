@@ -95,7 +95,7 @@ if (!window.indexedDB) {
 
 //request to open the database
 let db,
-    request = indexedDB.open("Sheets", 5);
+    request = indexedDB.open("Sheets", 6);
 
 //Check for errors
 request.onerror = event => {
@@ -114,7 +114,7 @@ request.onsuccess = event => {
 //Add missing tables if DB version is outdated
 request.onupgradeneeded = event => {
     let db = event.target.result;
-    let Names = ["Sheet", "Class", "Subclass", "Race", "Subrace", "Feature", "Effect", "Background", "Scores", "Items", "F-E", "I-F", "C-F", "SC-F", "R-F", "SR-F"]
+    let Names = ["Sheet", "Class", "Subclass", "Race", "Subrace", "Feature", "Effect", "Background", "Scores", "Items", "CustomContent"]
 
     Names.forEach(name => {
         if (!db.objectStoreNames.contains(name)) {

@@ -127,12 +127,12 @@ function AddNew() {
     let request = db.transaction(['Sheet', 'Class', 'Subclass', 'Race', 'Subrace', 'Feature', 'Background', 'Scores'], "readwrite")
         .objectStore('Sheet').put(CS)
         .source.transaction.objectStore('Class').put(Class)
-    //.objectStore('Subclass').put(Subclass)
-    //.objectStore('Race').put(Race)
-    //.objectStore('Subrace').put(Subrace)
-    //.objectstore('Feature').put(Feature)
-    //.objectStore('Background').put(Background)
-    //.objectstore('Scores').put(Scores)
+        .source.transaction.objectStore('Subclass').put(Subclass)
+        .source.transaction.objectStore('Race').put(Race)
+        .source.transaction.objectStore('Subrace').put(Subrace)
+        .source.transaction.objectstore('Feature').put(Feature)
+        .source.transaction.objectStore('Background').put(Background)
+        .source.transaction.objectstore('Scores').put(Scores)
     request.transaction.oncomplete = (event) => {
         alert('Character saved')
         window.location.pathname = '/'
