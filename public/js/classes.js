@@ -5,8 +5,8 @@ class Race {
     this.Name = Name
     this.Size = Size
     this.Type = Type
-    this.SubRaces = SubRaces[null]
-    this.Features = Features[null]
+    this.SubRaces = SubRaces
+    this.Features = Features
 }}
     let Races = []
 let Elf = new Race("Elf", Medium, Humanoid, [], [])
@@ -18,7 +18,7 @@ let Elf = new Race("Elf", Medium, Humanoid, [], [])
     constructor (ParentRace, Name, Features) {
         this.ParentRace = ParentRace
         this.Name = Name
-        this.Features = Features[null]
+        this.Features = Features
     }
 }
  let SubRaces =[]
@@ -26,7 +26,7 @@ let Elf = new Race("Elf", Medium, Humanoid, [], [])
     SubRaces.push(HighElf)
  
     SubRaces.forEach(subrace => {
-        subrace.ParentRace.Subraces.push(subrace)
+        subrace.ParentRace.SubRaces.push(subrace)
     })
 
         
