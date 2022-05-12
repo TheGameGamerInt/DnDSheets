@@ -1,3 +1,5 @@
+
+function updateNodes() {
 //Get fields that should be automated in an array
 let children = Array.from(document.getElementsByTagName('*')).filter((item) => {
     return item.hasAttribute('automated')
@@ -11,13 +13,13 @@ let parents = Array.from(document.getElementsByTagName('input')).filter((item) =
 parents.forEach(element => {
     element.addEventListener('input', () => {
         children.forEach(elem => {
-            if (elem.getAttribute('name') == element.getAttribute('child')) {
+            if (elem.getAttribute('automated') == element.getAttribute('child')) {
                 Auto(elem, element)
             }
         })
     })
 })
-
+}
 //Function that changes children based on parent value
 function Auto(elem, parent) {
     if (!document.getElementById('autoButton').checked) return;
@@ -98,8 +100,15 @@ console.log(scores)
 for (i in scores) {
     let input = document.createElement("input")
     let div = document.createElement("div")
+    let scoreMod = document.createElement('p')
     div.id=scores[i]
-    input.value = scores[i]
+    input.placeholder = scores[i]
+    input.type = "number"
+    input.setAttribute('child', scores[i])
+    input.setAttribute('CType', 'score')
+    scoreMod.setAttribute('Automated', scores[i])
     div.appendChild(input);
+    div.appendChild(scoreMod)
     document.getElementById("AbScoresDiv").appendChild(div);
 }
+updateNodes()
