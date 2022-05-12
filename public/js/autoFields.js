@@ -97,6 +97,9 @@ console.log(scores)
 for (i in scores) {
     let input = document.createElement("input")
     let div = document.createElement("div")
+    let Label = document.createElement("label")
+    Label.for=scores[i]
+    Label.value=scores[i]
     div.id=scores[i]
     input.value = scores[i]
     div.appendChild(input);

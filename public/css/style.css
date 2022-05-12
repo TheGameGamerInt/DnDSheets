@@ -2,6 +2,6 @@
  display:flex;
  flex-direction:column;
  align-self: left;
- size: 10%;  
+ max-width: 10%;  
  background-color: bisque;
 }
