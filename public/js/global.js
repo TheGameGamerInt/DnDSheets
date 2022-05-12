@@ -1,11 +1,15 @@
-// request.transaction.oncomplete = event => {
-//  req = db.transaction([ArrayOfTablesToAccess], 'readwrite').objectStore('FirstTableToAccess').put(ObjectToUpdateOrAddBasedOnID)
-//  .objectStore('SecondTableToAccess').get(IDOfObjectToGet)
-//  .objectStore('NextTableToAccess').getAll(OptionalParameterToFilterResults)
+//Template for transactions to database
+//
+//onStartup() {
+//  req = db.transaction([ArrayOfTablesToAccess], 'readwrite')
+//  .objectStore('FirstTableToAccess').put(ObjectToUpdateOrAddBasedOnID)
+//  .source.transaction.objectStore('SecondTableToAccess').get(IDOfObjectToGet)
+//  .source.transaction.objectStore('NextTableToAccess').getAll(OptionalParameterToFilterResults)
 //  req.onsuccess = event => {
-//      
+//      let results = event.target.results
 //  }
 //}
+
 
 let scores = ["Strength", "Dexterity", "Constitution", "Wisdom", "Intelligence", "Charisma"],
     classes = [{Name:"Barbarian"}, {Name:"Bard"}, {Name:"Cleric"}, {Name:"Druid"}, {Name:"Fighter"}, {Name:"Monk"}, {Name:"Paladin"}, {Name:"Ranger"}, {Name:"Rogue"}, {Name:"Sorcerer"}, {Name:"Warlock"}, {Name:"Wizard"}],
@@ -29,35 +33,43 @@ let scores = ["Strength", "Dexterity", "Constitution", "Wisdom", "Intelligence",
 
 
 
+
+//Global connection to database
+//Check if indexedDB is supported
 if (!window.indexedDB) {
     alert("Your browser doesn't support a stable version of IndexedDB. Please use another browser.");
     window.location = '/'
 }
 
+//request to open the database
 let db,
-    request = indexedDB.open("Sheets", 5);
+    request = indexedDB.open("Sheets", 6);
 
+//Check for errors
 request.onerror = event => {
     window.alert('Unable to access IndexedDB. Please permit access and/or leave incognito mode.\nWITHOUT ACCESS YOUR SHEETS WILL NOT BE STORED.');
 };
 
+//Call function to tell other scripts DB is connected
 request.onsuccess = event => {
     db = event.target.result;
     console.log('Connected!')
-    if (typeof onStartup === "function") { 
+    if (typeof onStartup === "function") {
         onStartup()
     }
 }
 
+//Add missing tables if DB version is outdated
 request.onupgradeneeded = event => {
     let db = event.target.result;
-    let Names = ["Sheet", "Class", "Subclass", "Race", "Subrace", "Feature", "Effect", "Background", "Scores", "Items", "F-E", "I-F", "C-F", "SC-F", "R-F", "SR-F"]
+    let Names = ["Sheet", "Class", "Subclass", "Race", "Subrace", "Feature", "Effect", "Background", "Scores", "Items", "CustomContent"]
 
     Names.forEach(name => {
         if (!db.objectStoreNames.contains(name)) {
             ;
             db.createObjectStore(name, {
-                keyPath: "ID"
+                keyPath: "ID",
+                autoIncrement: true
             })
         }
     })
