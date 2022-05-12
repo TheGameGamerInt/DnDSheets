@@ -94,3 +94,12 @@ document.getElementById("ch-race").onchange = function () {
         document.getElementById("ch-subrace").style.display = ''
     }
 }
+console.log(scores)
+for (i in scores) {
+    let input = document.createElement("input")
+    let div = document.createElement("div")
+    div.id=scores[i]
+    input.value = scores[i]
+    div.appendChild(input);
+    document.getElementById("AbScoresDiv").appendChild(div);
+}

@@ -63,6 +63,7 @@ let CS = {
         WIS: 10,
         INT: 10,
         CHA: 10
+
     },
     Items = {
         BelongsTo: parseInt(window.location.pathname.slice(6)),

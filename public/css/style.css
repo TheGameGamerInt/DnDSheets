@@ -1,0 +1,6 @@
+#AbScoresDiv {
+ display:flex;
+ flex-direction:column;
+ align-self: left;
+ size: 10%;   
+}
