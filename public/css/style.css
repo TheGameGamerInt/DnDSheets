@@ -2,5 +2,11 @@
  display:flex;
  flex-direction:column;
  align-self: left;
+<<<<<<< Updated upstream
  size: 10%;   
+=======
+ max-width: 10%;  
+ max-height: 16px;
+ background-color: bisque;
+>>>>>>> Stashed changes
 }
