@@ -43,7 +43,7 @@ if (!window.indexedDB) {
 
 //request to open the database
 let db,
-    request = indexedDB.open("Sheets", 6);
+    request = indexedDB.open("Sheets", 1);
 
 //Check for errors
 request.onerror = event => {
@@ -66,7 +66,6 @@ request.onupgradeneeded = event => {
 
     Names.forEach(name => {
         if (!db.objectStoreNames.contains(name)) {
-            ;
             db.createObjectStore(name, {
                 keyPath: "ID",
                 autoIncrement: true

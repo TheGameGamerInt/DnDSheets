@@ -24,7 +24,7 @@ app.get('/test', (req, resp) => {
 })
 
 app.get('/sheet*', (req, resp) => {
-  resp.render('sheet')
+  resp.render('Charactersheet')
 })
 
 // Listen to the App Engine-specified port, or 8080 otherwise
