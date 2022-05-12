@@ -18,6 +18,15 @@ As Heroku is used for deployment, the website might be asleep, and take a bit lo
 website will not be updated until this is reimplemented.
 
 # CHANGELOG
+
+## Alpha 2.0.0
+- Fixed varius bugs
+- General progression on the workspace
+- Added some functionality
+- Changed to IndexedDB for storage solution
+- Still figuring out data model and general layout of the sheet
+- I need to get better at writing changelogs more often
+
 ## Alpha 1.0.0
 - Introduced changelog
 - Not much functionality yet
