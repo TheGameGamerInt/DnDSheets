@@ -1,0 +1,7 @@
+Dokumentasjon DnDSheets.tk
+På startsiden blir brukeren vist en liste med eventuelle eksisterende karakterer og en «New» knapp. Hvis brukeren trykker på en av karakterene vil de komme til en ny side med detaljer om karakteren f.eks. klasse, rase, «ability scores» osv. med mulighet for å endre de, hvis bruker trykker på «New»-knappen vil de få opp en karakterside med helt tomme felt. Når bruker vil kan de lagre informasjonen fyllt inn på siden ved å trykke «Save» knappen (plassering TBD) og informasjonen vil bli lagret lokalt på nettleseren(IndexDB). 
+For mer informasjon angående utfylling av karaktersiden se Player’s handbook av Wizards of the Coast
+
+Fremtidige funksjoner:
+Funksjonalitet for å la bruker legge til eget innhold
+Funksjonalitet for å forenkle eksportering/importering av karakterdata til/fra andre nettlesere/maskiner
