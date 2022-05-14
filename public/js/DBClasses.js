@@ -1,19 +1,19 @@
 class DBSheet {
     constructor (ID, Name, Exp, PB, Player, Gender, Alignment, Inspiration, MaxHP, HP, THP, DSaves, Gold, Age, Appearance, Personality) {
         (ID != null) ? this.ID = ID : null;
-        this.Name = Name || 'New Character'
+        this.Name = Name
         this.Exp = Exp || 0
         this.PB = PB || 2
         this.Player = Player || 'Me'
-        this.Gender = Gender || 'Non-Binary'
-        this.Alignment = Alignment || 'Unaligned'
+        this.Gender = Gender || ''
+        this.Alignment = Alignment || ''
         this.Inspiration = Inspiration || false
         this.MaxHP = MaxHP || 10
         this.HP = HP || this.MaxHP
         this.THP = THP || 0
         this.DSaves = DSaves || [0,0,0]
         this.Gold = Gold || [0,0,0,0]
-        this.Age = Age || 18
+        this.Age = Age || null
         this.Appearance = Appearance || {}
         this.Personality = Personality || {}
     }
