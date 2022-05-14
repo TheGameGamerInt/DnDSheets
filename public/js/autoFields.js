@@ -22,7 +22,7 @@ parents.forEach(element => {
 }
 //Function that changes children based on parent value
 function Auto(elem, parent) {
-    if (!document.getElementById('autoButton').checked) return;
+    if (!gid('autoButton').checked) return;
     switch (parent.getAttribute('CType')) {
         case 'score':
             elem.innerHTML = Math.floor((parent.value - 10) / 2)
@@ -44,56 +44,56 @@ for (i in classes) {
     let text = document.createTextNode(classes[i].Name)
     option.value = classes[i].Name
     option.appendChild(text);
-    document.getElementById("ch-class").appendChild(option);
+    gid("ch-class").appendChild(option);
 }
 for (i in races) {
     let option = document.createElement("option")
     let text = document.createTextNode(races[i].Name)
     option.value = races[i].Name
     option.appendChild(text);
-    document.getElementById("ch-race").appendChild(option);
+    gid("ch-race").appendChild(option);
 }
 
 let SubRaces = subrace.filter((SR) => {
-    return document.getElementById("ch-race").value == SR.BelongsTo
+    return gid("ch-race").value == SR.BelongsTo
 })
 for (i in SubRaces) {
     let option = document.createElement("option")
     let text = document.createTextNode(SubRaces[i].Name)
     option.value = SubRaces[i].Name
     option.appendChild(text);
-    document.getElementById("ch-subrace").appendChild(option);
+    gid("ch-subrace").appendChild(option);
 }
 
-if (!document.getElementById("ch-subrace").hasChildNodes()) {
-    document.getElementById("ch-subrace").style.display = 'none'
-    document.getElementById("ch-subraceL").style.display = 'none'
+if (!gid("ch-subrace").hasChildNodes()) {
+    gid("ch-subrace").style.display = 'none'
+    gid("ch-subraceL").style.display = 'none'
 } else {
-    document.getElementById("ch-subraceL").style.display = ''
-    document.getElementById("ch-subrace").style.display = ''
+    gid("ch-subraceL").style.display = ''
+    gid("ch-subrace").style.display = ''
 }
 
 //Only show options if race has options
-document.getElementById("ch-race").onchange = function () {
+gid("ch-race").onchange = function () {
     SubRaces = subrace.filter((SR) => {
-        return document.getElementById("ch-race").value == SR.BelongsTo
+        return gid("ch-race").value == SR.BelongsTo
     })
-    while (document.getElementById("ch-subrace").hasChildNodes()) {
-        document.getElementById("ch-subrace").removeChild(document.getElementById("ch-subrace").firstChild);
+    while (gid("ch-subrace").hasChildNodes()) {
+        gid("ch-subrace").removeChild(gid("ch-subrace").firstChild);
     }
     for (i in SubRaces) {
         let option = document.createElement("option")
         let text = document.createTextNode(SubRaces[i].Name)
         option.value = SubRaces[i].Name
         option.appendChild(text);
-        document.getElementById("ch-subrace").appendChild(option);
+        gid("ch-subrace").appendChild(option);
     }
-    if (!document.getElementById("ch-subrace").hasChildNodes()) {
-        document.getElementById("ch-subrace").style.display = 'none'
-        document.getElementById("ch-subraceL").style.display = 'none'
+    if (!gid("ch-subrace").hasChildNodes()) {
+        gid("ch-subrace").style.display = 'none'
+        gid("ch-subraceL").style.display = 'none'
     } else {
-        document.getElementById("ch-subraceL").style.display = ''
-        document.getElementById("ch-subrace").style.display = ''
+        gid("ch-subraceL").style.display = ''
+        gid("ch-subrace").style.display = ''
     }
 }
 console.log(scores)
@@ -111,6 +111,6 @@ for (i in scores) {
     scoreMod.className = 'scoreMod'
     div.appendChild(input);
     div.appendChild(scoreMod)
-    document.getElementById("AbScoresDiv").appendChild(div);
+    gid("AbScoresDiv").appendChild(div);
 }
 updateNodes()

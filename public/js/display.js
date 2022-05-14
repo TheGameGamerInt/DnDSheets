@@ -3,7 +3,7 @@ function onStartup() {
     req = db.transaction(["Sheet", ]).objectStore('Sheet').getAll()
     req.onsuccess = event => {
         console.log(event.target)
-        let link = document.getElementById('link'),
+        let link = gid('link'),
             i = 1
         for (let j = 0; j < event.target.result.length; j++) {
             if (event.target.result[j].ID > i) {
@@ -22,7 +22,7 @@ function onStartup() {
             url.href = '/sheet' + item.ID
             url.appendChild(text)
             li.appendChild(url)
-            document.getElementById('list').appendChild(li)
+            gid('list').appendChild(li)
         })
     }
 };

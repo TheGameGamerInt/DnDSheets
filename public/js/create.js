@@ -83,21 +83,22 @@ let Race = {
 //Insert into DB
 function AddNew() {
 let ID = parseInt(window.location.pathname.slice(6))
-let Name = document.getElementById('ch-name').value
-let Gender = document.getElementById('ch-gender').value
-let Age = document.getElementById('ch-age').value
-let Class = document.getElementById('ch-class').value
-let Race = document.getElementById('ch-race').value
-let SubRace = document.getElementById('ch-subrace').value
+let Name = gid('ch-name').value
+let Gender = gid('ch-gender').value
+let Age = gid('ch-age').value
+let Level = gid('startingclass').value
+let Class = gid('ch-class').value
+let Race = gid('ch-race').value
+let SubRace = gid('ch-subrace').value
     let request = db.transaction(['Sheet', 'Class', 'Subclass', 'Race', 'Subrace', 'Feature', 'Background', 'Scores'], "readwrite")
-        .objectStore('Sheet').put(new DBSheet(ID,Name,0,null,'You', null, null, null, null, null, null, null, Age, null, null))
-        /**.source.transaction.objectStore('Class').put(Class)
-        .source.transaction.objectStore('Subclass').put(Subclass)*/
-        .source.transaction.objectStore('Race').put(new DBRace(ID,'Elf',null))
-        /**.source.transaction.objectStore('Subrace').put(Subrace)
-        .source.transaction.objectstore('Feature').put(Feature)
-        .source.transaction.objectStore('Background').put(Background)
-        .source.transaction.objectstore('Scores').put(Scores)*/
+        .objectStore('Sheet').put(new DBSheet(ID,Name,xpReqs[Level-1],null,'You', Gender, null, null, null, null, null, null, null, Age, null, null))
+        /**.source.transaction.objectStore('Class').put(Class)/****/
+        /**.source.transaction.objectStore('Subclass').put(Subclass)/****/
+        /**.source.transaction.objectStore('Race').put(new DBRace(ID,'Elf',null))/****/
+        /**.source.transaction.objectStore('Subrace').put(Subrace)/****/
+        /**.source.transaction.objectstore('Feature').put(Feature)/****/
+        /**.source.transaction.objectStore('Background').put(Background)/****/
+        .source.transaction.objectstore('Scores').put(Scores)/****/
     request.transaction.oncomplete = (event) => {
         alert('Character saved')
         window.location.pathname = '/'
