@@ -101,12 +101,14 @@ for (i in scores) {
     let input = document.createElement("input")
     let div = document.createElement("div")
     let scoreMod = document.createElement('p')
+    scoreMod.appendChild(document.createTextNode('0'))
     div.id=scores[i]
     input.placeholder = scores[i]
     input.type = "number"
     input.setAttribute('child', scores[i])
     input.setAttribute('CType', 'score')
     scoreMod.setAttribute('Automated', scores[i])
+    scoreMod.className = 'scoreMod'
     div.appendChild(input);
     div.appendChild(scoreMod)
     document.getElementById("AbScoresDiv").appendChild(div);

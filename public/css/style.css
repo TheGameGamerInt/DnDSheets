@@ -2,6 +2,11 @@
  display:flex;
  flex-direction:column;
  align-self: left;
- max-width: 10%;  
+ max-width: 10%;
  background-color: bisque;
+}
+
+.scoreMod {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

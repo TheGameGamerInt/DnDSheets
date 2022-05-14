@@ -1,48 +1,6 @@
 //Define templates to be changed and inserted into DB
 //Will be converted to classes
-console.log(window.location.pathname.slice(6))
-let CS = {
-        ID: parseInt(window.location.pathname.slice(6)),
-        Name: 'New Character #' + window.location.pathname.slice(6),
-        Exp: 0,
-        PB: 2,
-        Player: '',
-        Alignment: '',
-        Inspiration: false,
-        HP: 0,
-        MaxHP: 0,
-        THP: 0,
-        DSaves: [0, 0, 0],
-        Gold: 0,
-        Age: 0,
-        Appearance: {
-            Skin: "",
-            Gender: "",
-            Height: 0,
-            Weight: 0,
-            Eyes: ""
-        },
-        Personality: {
-            BS: "I wanted to become an adventurer like you, before you took an arrow to the knee.",
-            Goals: "I want to be the very best.",
-            Ideals: "People should die when they are killed.",
-            Traits: "I've got to catch all the evil people.",
-            Flaws: "I'm flawless, and that's my flaw."
-        }
-    },
-    Class = {
-        BelongsTo: parseInt(window.location.pathname.slice(6)),
-        Name: '',
-        HitDie: [1, 4],
-        Levels: 1
-    },
-    Subclass = {
-        BelongsTo: function () {
-            return Class.ID
-        },
-        Name: ""
-    },
-    Race = {
+let Race = {
         BelongsTo: parseInt(window.location.pathname.slice(6)),
         Name: "",
         Features: []
@@ -124,16 +82,22 @@ let CS = {
 
 //Insert into DB
 function AddNew() {
-
+let ID = parseInt(window.location.pathname.slice(6))
+let Name = document.getElementById('ch-name').value
+let Gender = document.getElementById('ch-gender').value
+let Age = document.getElementById('ch-age').value
+let Class = document.getElementById('ch-class').value
+let Race = document.getElementById('ch-race').value
+let SubRace = document.getElementById('ch-subrace').value
     let request = db.transaction(['Sheet', 'Class', 'Subclass', 'Race', 'Subrace', 'Feature', 'Background', 'Scores'], "readwrite")
-        .objectStore('Sheet').put(CS)
-        .source.transaction.objectStore('Class').put(Class)
-        .source.transaction.objectStore('Subclass').put(Subclass)
-        .source.transaction.objectStore('Race').put(Race)
-        .source.transaction.objectStore('Subrace').put(Subrace)
+        .objectStore('Sheet').put(new DBSheet(ID,Name,0,null,'You', null, null, null, null, null, null, null, Age, null, null))
+        /**.source.transaction.objectStore('Class').put(Class)
+        .source.transaction.objectStore('Subclass').put(Subclass)*/
+        .source.transaction.objectStore('Race').put(new DBRace(ID,'Elf',null))
+        /**.source.transaction.objectStore('Subrace').put(Subrace)
         .source.transaction.objectstore('Feature').put(Feature)
         .source.transaction.objectStore('Background').put(Background)
-        .source.transaction.objectstore('Scores').put(Scores)
+        .source.transaction.objectstore('Scores').put(Scores)*/
     request.transaction.oncomplete = (event) => {
         alert('Character saved')
         window.location.pathname = '/'

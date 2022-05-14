@@ -57,6 +57,9 @@ request.onsuccess = event => {
     if (typeof onStartup === "function") {
         onStartup()
     }
+    if (typeof DBonStartup === "function") {
+        DBonStartup()
+    }
 }
 
 //Add missing tables if DB version is outdated
