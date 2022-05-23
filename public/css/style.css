@@ -1,9 +1,9 @@
 #AbScoresDiv {
- display:flex;
- flex-direction:column;
- align-self: left;
- max-width: 10%;
- background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    align-self: left;
+    max-width: 10%;
+    background-color: bisque;
 }
 
 .scoreMod {

@@ -1,12 +1,14 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="css/style.css">
-        
-    </head>
-    <body>
-        <p>Toggle automatic calculations</p>
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <p>Toggle automatic calculations</p>
     <input type="checkbox" id="autoButton" checked><br><br>
-        <div>
+    <div>
         <label id="ch-nameL" for="ch-name"> Character Name: </label>
         <input type="text" id="ch-name" name="ch-name">
         <label id="ch-genderL" for="ch-gender"> Gender: </label>
@@ -15,7 +17,7 @@
         <input type="number" id="ch-age" name="ch-age">
         <label id="ch-classL" for="ch-class">Class:</label>
         <select id="ch-class" name="ch-class"></select>
-        <label  id="ch-raceL"for="ch-race">Race:</label>
+        <label id="ch-raceL" for="ch-race">Race:</label>
         <select id="ch-race" name="ch-race"></select>
         <label id="ch-subraceL" for="ch-subrace">Subrace:</label>
         <select id="ch-subrace" name="ch-subrace"></select>
@@ -23,22 +25,23 @@
             <label for="startingclass">Level</label>
             <input Id="startingclass" class="levels" type="number">
         </div>
-        </div>
-        <div id="AbScoresDiv">
-        
-        </div>
-        <div id="features">
+    </div>
+    <div id="AbScoresDiv">
 
-        </div>
-        
+    </div>
+    <div id="features">
 
-        
+    </div>
 
-        <button onclick="AddNew()">Save</button>
-        <script src="js/DBClasses.js"></script>
-        <script src="js/create.js"></script>
-        <script src="js/global.js"></script>
-        <script src="js/autoFields.js"></script>
-        <script src="js/FillFromDB.js"></script>
-    </body>
+
+
+
+    <button onclick="AddNew()">Save</button>
+    <script src="js/DBClasses.js"></script>
+    <script src="js/create.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/autoFields.js"></script>
+    <script src="js/FillFromDB.js"></script>
+</body>
+
 </html>

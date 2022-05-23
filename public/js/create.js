@@ -82,23 +82,31 @@ let Race = {
 
 //Insert into DB
 function AddNew() {
-let ID = parseInt(window.location.pathname.slice(6))
-let Name = gid('ch-name').value || 'New Character ' + ID
-let Gender = gid('ch-gender').value
-let Age = gid('ch-age').value
-let Level = gid('startingclass').value
-let Class = gid('ch-class').value
-let Race = gid('ch-race').value
-let SubRace = gid('ch-subrace').value
+    let ID = parseInt(window.location.pathname.slice(6))
+    let Name = gid('ch-name').value || 'New Character ' + ID
+    let Gender = gid('ch-gender').value
+    let Age = gid('ch-age').value
+    let Level = gid('startingclass').value
+    let Class = gid('ch-class').value
+    let Race = gid('ch-race').value
+    let SubRace = gid('ch-subrace').value
     let request = db.transaction(['Sheet', 'Class', 'Subclass', 'Race', 'Subrace', 'Feature', 'Background', 'Scores'], "readwrite")
-        .objectStore('Sheet').put(new DBSheet(ID,Name,xpReqs[Level-1],null,'You', Gender, null, null, null, null, null, null, null, Age, null, null))
+        .objectStore('Sheet').put(new DBSheet(ID, Name, xpReqs[Level - 1], null, 'You', Gender, null, null, null, null, null, null, null, Age, null, null))
         /**.source.transaction.objectStore('Class').put(Class)/****/
         /**.source.transaction.objectStore('Subclass').put(Subclass)/****/
         /**.source.transaction.objectStore('Race').put(new DBRace(ID,'Elf',null))/****/
         /**.source.transaction.objectStore('Subrace').put(Subrace)/****/
         /**.source.transaction.objectstore('Feature').put(Feature)/****/
         /**.source.transaction.objectStore('Background').put(Background)/****/
-        .transaction.objectStore('Scores').put({ID, STR: gid(scores[0]).value || 10, DEX: gid(scores[1]).value || 10, CON: gid(scores[2]).value || 10, WIS: gid(scores[3]).value || 10, INT: gid(scores[4]).value || 10, CHA: gid(scores[5]).value || 10})/****/
+        .transaction.objectStore('Scores').put({
+            ID,
+            STR: gid(scores[0]).value || 10,
+            DEX: gid(scores[1]).value || 10,
+            CON: gid(scores[2]).value || 10,
+            WIS: gid(scores[3]).value || 10,
+            INT: gid(scores[4]).value || 10,
+            CHA: gid(scores[5]).value || 10
+        }) /****/
     request.transaction.oncomplete = (event) => {
         alert('Character saved')
         window.location.pathname = '/'

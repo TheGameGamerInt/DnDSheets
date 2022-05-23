@@ -1,26 +1,25 @@
-
 function updateNodes() {
     console.log('nodes')
-//Get fields that should be automated in an array
-let children = Array.from(document.getElementsByTagName('*')).filter((item) => {
-    return item.hasAttribute('automated')
-});
-//Get fields that should automate the fields in children array as an array 
-let parents = Array.from(document.getElementsByTagName('input')).filter((item) => {
-    return item.hasAttribute('child')
-})
+    //Get fields that should be automated in an array
+    let children = Array.from(document.getElementsByTagName('*')).filter((item) => {
+        return item.hasAttribute('automated')
+    });
+    //Get fields that should automate the fields in children array as an array 
+    let parents = Array.from(document.getElementsByTagName('input')).filter((item) => {
+        return item.hasAttribute('child')
+    })
 
-//Add event listener to change children on parent update
-parents.forEach(element => {
-    element.addEventListener('input', () => {
-        children.forEach(elem => {
-            if (elem.getAttribute('automated') == element.getAttribute('child')) {
-                Auto(elem, element)
-            }
+    //Add event listener to change children on parent update
+    parents.forEach(element => {
+        element.addEventListener('input', () => {
+            children.forEach(elem => {
+                if (elem.getAttribute('automated') == element.getAttribute('child')) {
+                    Auto(elem, element)
+                }
+            })
         })
     })
-})
-parents.forEach(element => {
+    parents.forEach(element => {
         children.forEach(elem => {
             if (elem.getAttribute('automated') == element.getAttribute('child')) {
                 Auto(elem, element)
@@ -113,7 +112,7 @@ for (i in scores) {
     scoreMod.appendChild(document.createTextNode('0'))
     input.id = scores[i]
     input.value = 10
-    div.id='div-' + scores[i]
+    div.id = 'div-' + scores[i]
     input.placeholder = scores[i]
     input.type = "number"
     input.setAttribute('child', scores[i])

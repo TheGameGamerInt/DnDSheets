@@ -12,10 +12,72 @@
 
 let gid = (id) => document.getElementById(id)
 let scores = ["Strength", "Dexterity", "Constitution", "Wisdom", "Intelligence", "Charisma"],
-    classes = [{Name:"Barbarian"}, {Name:"Bard"}, {Name:"Cleric"}, {Name:"Druid"}, {Name:"Fighter"}, {Name:"Monk"}, {Name:"Paladin"}, {Name:"Ranger"}, {Name:"Rogue"}, {Name:"Sorcerer"}, {Name:"Warlock"}, {Name:"Wizard"}],
-    races = [{Name:"Dragonborn"}, {Name:"Dwarf"}, {Name:"Elf"}, {Name:"Gnome"}, {Name:"Half-Elf"}, {Name:"Half-Orc"}, {Name:"Halfling"}, {Name:"Human"}, {Name:"Tiefling"}],
-    subrace = [{Name:"Hill Dwarf", BelongsTo:"Dwarf"}, {Name:"High Elf", BelongsTo:"Elf"}, {Name:"Rock Gnome", BelongsTo:"Gnome"}, {Name:"Lightfoot", BelongsTo:"Halfling"}]
-    features = [{Name:"Powerful build",Prerequisite:null,Effect:null /*temporary*/} ,{Name:"Stonecunning", Prerequisite:"Dwarf",Effect:null/*Temporary*/},{}],
+    classes = [{
+        Name: "Barbarian"
+    }, {
+        Name: "Bard"
+    }, {
+        Name: "Cleric"
+    }, {
+        Name: "Druid"
+    }, {
+        Name: "Fighter"
+    }, {
+        Name: "Monk"
+    }, {
+        Name: "Paladin"
+    }, {
+        Name: "Ranger"
+    }, {
+        Name: "Rogue"
+    }, {
+        Name: "Sorcerer"
+    }, {
+        Name: "Warlock"
+    }, {
+        Name: "Wizard"
+    }],
+    races = [{
+        Name: "Dragonborn"
+    }, {
+        Name: "Dwarf"
+    }, {
+        Name: "Elf"
+    }, {
+        Name: "Gnome"
+    }, {
+        Name: "Half-Elf"
+    }, {
+        Name: "Half-Orc"
+    }, {
+        Name: "Halfling"
+    }, {
+        Name: "Human"
+    }, {
+        Name: "Tiefling"
+    }],
+    subrace = [{
+        Name: "Hill Dwarf",
+        BelongsTo: "Dwarf"
+    }, {
+        Name: "High Elf",
+        BelongsTo: "Elf"
+    }, {
+        Name: "Rock Gnome",
+        BelongsTo: "Gnome"
+    }, {
+        Name: "Lightfoot",
+        BelongsTo: "Halfling"
+    }]
+features = [{
+        Name: "Powerful build",
+        Prerequisite: null,
+        Effect: null /*temporary*/
+    }, {
+        Name: "Stonecunning",
+        Prerequisite: "Dwarf",
+        Effect: null /*Temporary*/
+    }, {}],
     xpReqs = [0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000]
 
 
